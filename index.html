@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title></title>
+
+    <link rel="stylesheet" href=""/>
+    <style type="text/css" media="screen"></style>
+</head>
+<body>
+
+<script>
+    // Load native UI library
+    var gui = require('nw.gui');
+
+    // Get the current window
+    var win = gui.Window.get();
+
+
+    var tray = new gui.Tray({icon: 'icon.png'});
+    tray.on('click', function () {
+        win.show();
+        win.enterFullscreen();
+    });
+    win.on('minimize', function () {
+        this.hide();
+    });
+
+    win.minimize();
+</script>
+</body>
+</html>
