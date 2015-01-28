@@ -12,23 +12,27 @@
 <body>
 
 <script>
-    // Load native UI library
-    var gui = require('nw.gui');
+    'use strict';
+    var gui = require('nw.gui'); // Load native UI library
+    var win = gui.Window.get(); // Get the current window
+    var menuFabric = require('./menuFabric');
 
-    // Get the current window
-    var win = gui.Window.get();
-
+    var menu = menuFabric(null, [
+        {
+            'Start break': function () {
+                win.show();
+                //win.enterFullscreen();
+            }
+        }
+    ]);
 
     var tray = new gui.Tray({icon: 'icon.png'});
-    tray.on('click', function () {
-        win.show();
-        win.enterFullscreen();
-    });
+
+    tray.menu = menu;
+
     win.on('minimize', function () {
         this.hide();
     });
-
-    win.minimize();
 </script>
 </body>
 </html>

@@ -1,4 +1,14 @@
 {
   "name": "interrupter",
-  "main": "index.html"
+  "main": "index.html",
+  "window": {
+    "toolbar": false,
+    "fullscreen": true,
+    "show_in_taskbar": false,
+    "frame": false,
+    "show": false
+  },
+  "dependencies": {
+    "underscore": "^1.7.0"
+  }
 }
