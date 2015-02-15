@@ -7,32 +7,14 @@
     <title></title>
 
     <link rel="stylesheet" href=""/>
-    <style type="text/css" media="screen"></style>
+    <style type="text/css" media="screen">
+        html {
+            background-color: green;
+        }
+    </style>
 </head>
 <body>
 
-<script>
-    'use strict';
-    var gui = require('nw.gui'); // Load native UI library
-    var win = gui.Window.get(); // Get the current window
-    var menuFabric = require('./menuFabric');
-
-    var menu = menuFabric(null, [
-        {
-            'Start break': function () {
-                win.show();
-                //win.enterFullscreen();
-            }
-        }
-    ]);
-
-    var tray = new gui.Tray({icon: 'icon.png'});
-
-    tray.menu = menu;
-
-    win.on('minimize', function () {
-        this.hide();
-    });
-</script>
+<script src="./index.js"></script>
 </body>
 </html>
